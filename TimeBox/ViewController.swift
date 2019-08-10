@@ -25,8 +25,18 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TEST TIMER
+        let _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        
+        let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            print("2nd Way")
+        }
     }
 
+    @objc func fireTimer() {
+        print("Timer fired!")
+    }
+    
     @IBAction func doneButtonClick(_ sender: Any) {
         let time = self.timePicker.dateValue
         let title = self.titleTextField.stringValue
